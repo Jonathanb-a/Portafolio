@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin } from 'react-icons/fa6'
-import { github, linkedin } from '@/data/contact'
+import { FaGithub } from 'react-icons/fa6'
+import { github } from '@/data/contact'
 import { reveal, stagger, viewportOnce } from '@/lib/motion'
 
 const links = [
@@ -11,7 +11,6 @@ const links = [
 
 const social = [
   { href: github, label: 'GitHub', icon: FaGithub },
-  { href: linkedin, label: 'LinkedIn', icon: FaLinkedin },
 ]
 
 const linkClass =
@@ -41,7 +40,7 @@ export function Footer() {
             href="#inicio"
             className="inline-flex min-h-11 items-center rounded-md font-heading text-lg font-semibold tracking-tight md:flex-1"
           >
-            Jonathan<span className="text-primary">.</span>
+            Jonathan<span className="text-primary">.</span>dev
           </a>
 
           <nav aria-label="Pie de página">

@@ -6,8 +6,9 @@ import {
   useTransform,
   type Variants,
 } from 'framer-motion'
-import { duration, ease, reveal, spring, stagger, viewportOnce } from '@/lib/motion'
+import { cardHover, duration, ease, reveal, spring, stagger, viewportOnce } from '@/lib/motion'
 import { stack } from '@/data/stack'
+import { aiItems } from '@/data/ai'
 
 // La foto va en src/assets/jonathan.jpg. Si aún no existe se muestra un placeholder.
 const photos = import.meta.glob('../assets/jonathan.{jpg,jpeg,png,webp}', {
@@ -102,6 +103,16 @@ const codeLines: Tok[][] = [
     ['', '  '], [key, 'idiomas'], [punct, ': ['],
     [str, '"Español"'], [punct, ', '], [str, '"Inglés técnico"'], [punct, '],'],
   ],
+  [
+    ['', '  '], [key, 'aprendiendo'], [punct, ': ['],
+    [str, '"React Native"'], [punct, '],'],
+  ],
+  [
+    ['', '  '], [key, 'ia'], [punct, ': ['],
+    [str, '"Claude"'], [punct, ', '], [str, '"Gemini"'], [punct, ', '],
+    [str, '"ChatGPT"'], [punct, ', '], [str, '"APIs"'], [punct, ', '],
+    [str, '"Skills"'], [punct, '],'],
+  ],
   [['', '  '], [key, 'disponible'], [punct, ': '], [kw, 'true'], [punct, ',']],
   [[punct, '};']],
 ]
@@ -135,7 +146,7 @@ function CodeCard() {
         whileInView="visible"
         viewport={viewportOnce}
         className="overflow-x-auto p-5 font-mono text-sm leading-7"
-        aria-label="const jonathan: rol Desarrollador web junior, base Guerrero México, idiomas Español e Inglés técnico, disponible true"
+        aria-label="const jonathan: rol Desarrollador web junior, base Guerrero México, idiomas Español e Inglés técnico, aprendiendo React Native, ia Claude Gemini ChatGPT APIs Skills, disponible true"
       >
         <code>
           {codeLines.map((line, i) => (
@@ -192,7 +203,7 @@ function TechStack() {
         variants={techGrid}
         className="mt-8 grid grid-cols-3 gap-x-4 gap-y-10 sm:grid-cols-4 lg:grid-cols-6"
       >
-        {stack.map(({ name, icon: Icon, color }) => (
+        {stack.map(({ name, icon: Icon, color, note }) => (
           <motion.li
             key={name}
             variants={techItem}
@@ -202,10 +213,52 @@ function TechStack() {
             <motion.span variants={techIcon} className="inline-flex" style={{ color }}>
               <Icon aria-hidden className="size-9" />
             </motion.span>
-            <span className="text-xs text-muted-foreground">{name}</span>
+            <span className="flex flex-col gap-0.5 text-xs text-muted-foreground">
+              {name}
+              {note && <span className="font-mono text-[0.7rem] text-primary">{note}</span>}
+            </span>
           </motion.li>
         ))}
       </motion.ul>
+    </motion.div>
+  )
+}
+
+function AppliedAI() {
+  return (
+    <motion.div
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      className="mt-16"
+    >
+      <motion.p
+        variants={reveal}
+        className="mb-4 font-mono text-eyebrow uppercase text-primary"
+      >
+        IA aplicada
+      </motion.p>
+      <motion.h3
+        variants={reveal}
+        className="text-balance font-heading text-h3 font-semibold"
+      >
+        No solo uso IA, la integro.
+      </motion.h3>
+
+      <ul className="mt-8 grid gap-4 md:grid-cols-2">
+        {aiItems.map(({ title, description }) => (
+          <motion.li
+            key={title}
+            variants={reveal}
+            {...cardHover}
+            className="rounded-xl border border-border bg-card p-6 transition-colors duration-300 hover:border-primary/40"
+          >
+            <h4 className="font-heading text-base font-semibold">{title}</h4>
+            <p className="mt-2 text-pretty text-sm text-muted-foreground">{description}</p>
+          </motion.li>
+        ))}
+      </ul>
     </motion.div>
   )
 }
@@ -246,6 +299,7 @@ export function About() {
             <CodeCard />
           </div>
           <TechStack />
+          <AppliedAI />
         </div>
       </motion.div>
     </section>

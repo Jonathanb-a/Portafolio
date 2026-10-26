@@ -101,7 +101,7 @@ export function Navbar() {
           onClick={(e) => handleClick(e, '#inicio')}
           className="inline-flex min-h-11 items-center font-heading text-lg font-semibold tracking-tight"
         >
-          Jonathan<span className="text-primary">.</span>
+          Jonathan<span className="text-primary">.</span>dev
         </a>
 
         {/* Escritorio / tablet */}

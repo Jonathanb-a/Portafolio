@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Check, Copy, Download } from 'lucide-react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa6'
+import { FaGithub } from 'react-icons/fa6'
 import { buttonVariants } from '@/components/ui/button'
-import { email, github, linkedin, cvUrl } from '@/data/contact'
+import { email, github, cvUrl } from '@/data/contact'
 import { buttonPress, cardHover, reveal, stagger, viewportOnce } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
@@ -137,7 +137,7 @@ export function Contact() {
 
           <motion.div
             variants={reveal}
-            className="mx-auto mt-6 grid max-w-xl gap-3 sm:grid-cols-3"
+            className="mx-auto mt-6 grid max-w-md gap-3 sm:grid-cols-2"
           >
             <motion.a
               href={github}
@@ -148,16 +148,6 @@ export function Contact() {
             >
               <FaGithub aria-hidden className="size-5" />
               GitHub
-            </motion.a>
-            <motion.a
-              href={linkedin}
-              target="_blank"
-              rel="noopener"
-              {...cardHover}
-              className={linkCard}
-            >
-              <FaLinkedin aria-hidden className="size-5" />
-              LinkedIn
             </motion.a>
             <motion.a
               href={cvUrl}
