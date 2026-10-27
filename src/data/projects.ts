@@ -23,19 +23,19 @@ export const projects: Project[] = [
     repo: 'https://github.com/Jonathanb-a',
   },
   {
-    title: 'SystemInventario',
+    title: 'Game-Trip',
     description:
-      'Sistema de gestión de inventarios con control de productos, entradas y salidas.',
-    tags: ['Laravel', 'PHP', 'MySQL'],
-    image: '',
-    demo: '',
+      'lading page sobre viajar ah punto reales basados en video juegos, con un diseño atractivo y moderno.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap 5'],
+    image: '/projects/gametrip.png',
+    demo: 'https://jonathanb-a.github.io/GameTrip/act2/index.html',
     repo: 'https://github.com/Jonathanb-a',
   },
   {
     title: 'Sistema de actividades recreativas',
     description:
       'Plataforma web para gestionar las actividades recreativas de un hotel. Proyecto real en producción.',
-    tags: ['Laravel', 'MySQL'],
+    tags: ['Laravel', 'MySQL', 'Blade', 'React'],
     image: '',
     demo: '',
     repo: '',
