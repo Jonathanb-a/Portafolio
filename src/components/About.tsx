@@ -18,9 +18,10 @@ const photos = import.meta.glob('../assets/jonathan.{jpg,jpeg,png,webp}', {
 const photo = Object.values(photos)[0]
 
 const paragraphs = [
-  'Soy Jonathan, estudiante de Ingeniería en Gestión de Software en la UTCGG, en Guerrero. Dos años como mesero y room service en un hotel me enseñaron cómo se usa un sistema cuando hay prisa y nadie tiene tiempo de leer instrucciones.',
-  'Hoy desarrollo, desde adentro, un sistema de gestión de actividades recreativas para ese hotel, además de una plataforma e-commerce multitienda y una app de citas dentales para clientes reales.',
-  'Busco mi primera oportunidad remota o freelance como desarrollador junior.',
+  'Soy Jonathan, estudiante de Ingeniería en Gestión de Software en la UTCGG, en Guerrero (egreso en abril de 2027).',
+  'Durante casi dos años trabajé como mesero y room service en un hotel. Ahí aprendí algo que no enseñan en clase: cómo se usa un sistema cuando hay prisa, mucha gente y nadie tiene tiempo de leer instrucciones. Hoy trabajo en ese mismo hotel, pero desde el otro lado: desarrollo el sistema con el que reservan sus actividades.',
+  'Además he construido proyectos para clientes reales: una app de citas para un consultorio dental y una plataforma de comercio en línea donde dos tiendas con marca propia comparten un solo backend. Y como quería salir de la web, hice Gastito, una app en React Native que corre en Android, iPhone y navegador con el mismo código.',
+  'Busco mi primera oportunidad remota o freelance como desarrollador front-end.',
 ]
 
 // Los bordes negros de la foto se funden con el fondo de la página.
