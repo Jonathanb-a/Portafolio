@@ -8,6 +8,8 @@ export type Project = {
   demo: string
   /** URL del repositorio. Vacío = sin enlace. */
   repo: string
+  /** Texto opcional (p. ej. "Demo bajo solicitud"). Se muestra si no hay enlaces. */
+  note?: string
 }
 
 export const projects: Project[] = [
@@ -16,8 +18,8 @@ export const projects: Project[] = [
     description:
       'Aplicación web para gestionar citas en consultorios dentales: agenda, pacientes y recordatorios.',
     tags: ['Laravel 12', 'Tailwind CSS', 'Alpine.js', 'MySQL', 'Railway'],
-    image: '',
-    demo: '',
+    image: "/projects/dentissa.png",
+    demo: 'https://citas-dentista-production.up.railway.app',
     repo: 'https://github.com/Jonathanb-a',
   },
   {
@@ -37,6 +39,7 @@ export const projects: Project[] = [
     image: '',
     demo: '',
     repo: '',
+    note: 'Demo bajo solicitud',
   },
   {
     title: 'Plataforma multitienda',

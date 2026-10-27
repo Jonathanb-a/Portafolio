@@ -3,7 +3,7 @@ import { projects, type Project } from '@/data/projects'
 import { cardHover, reveal, stagger, viewportOnce } from '@/lib/motion'
 
 function ProjectCard({ project }: { project: Project }) {
-  const { title, description, tags, image, demo, repo } = project
+  const { title, description, tags, image, demo, repo, note } = project
 
   return (
     <motion.article
@@ -39,6 +39,15 @@ function ProjectCard({ project }: { project: Project }) {
               </li>
             ))}
           </ul>
+        )}
+
+        {!demo && !repo && note && (
+          <p className="mt-auto pt-6">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 font-mono text-xs text-muted-foreground">
+              <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+              {note}
+            </span>
+          </p>
         )}
 
         {(demo || repo) && (
