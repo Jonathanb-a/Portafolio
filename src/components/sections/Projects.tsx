@@ -3,7 +3,9 @@ import { projects, type Project } from '@/data/projects'
 import { cardHover, reveal, stagger, viewportOnce } from '@/lib/motion'
 
 function ProjectCard({ project }: { project: Project }) {
-  const { title, description, tags, image, demo, repo, note } = project
+  const { title, description, tags, image, demo, repo, note, links } = project
+  const hasLinks = !!links && links.length > 0
+  const hasActions = hasLinks || !!demo || !!repo
 
   return (
     <motion.article
@@ -41,7 +43,7 @@ function ProjectCard({ project }: { project: Project }) {
           </ul>
         )}
 
-        {!demo && !repo && note && (
+        {!hasActions && note && (
           <p className="mt-auto pt-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 font-mono text-xs text-muted-foreground">
               <span aria-hidden className="size-1.5 rounded-full bg-primary" />
@@ -50,18 +52,30 @@ function ProjectCard({ project }: { project: Project }) {
           </p>
         )}
 
-        {(demo || repo) && (
+        {hasActions && (
           <div className="mt-auto flex flex-wrap gap-x-5 pt-6">
-            {demo && (
-              <a
-                href={demo}
-                target="_blank"
-                rel="noopener"
-                className="inline-flex min-h-11 items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
-              >
-                Demo en vivo ↗
-              </a>
-            )}
+            {hasLinks
+              ? links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex min-h-11 items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
+                  >
+                    {link.label} ↗
+                  </a>
+                ))
+              : demo && (
+                  <a
+                    href={demo}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex min-h-11 items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
+                  >
+                    Demo en vivo ↗
+                  </a>
+                )}
             {repo && (
               <a
                 href={repo}

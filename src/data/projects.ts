@@ -6,6 +6,8 @@ export type Project = {
   image: string
   /** URL de la demo en vivo. Vacío = sin enlace. */
   demo: string
+  /** Varios enlaces (un botón por cada uno). Si existe, reemplaza al enlace de demo. */
+  links?: { label: string; url: string }[]
   /** URL del repositorio. Vacío = sin enlace. */
   repo: string
   /** Texto opcional (p. ej. "Demo bajo solicitud"). Se muestra si no hay enlaces. */
