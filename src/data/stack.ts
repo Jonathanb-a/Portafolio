@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import type { IconType } from 'react-icons'
 import {
   SiAlpinedotjs,
+  SiAstro,
   SiClaude,
   SiClaudecode,
   SiCss,
@@ -66,6 +67,7 @@ export const stack: Tech[] = [
   { name: 'Alpine.js', icon: SiAlpinedotjs, color: '#8BC0D0' },
   { name: 'React', icon: SiReact, color: '#61DAFB' },
   { name: 'React Native', icon: SiReact, color: '#61DAFB', note: 'aprendiendo' },
+  { name: 'Astro', icon: SiAstro, color: '#BC52EE' },
   { name: 'Git', icon: SiGit, color: '#F05032' },
   { name: 'GitHub', icon: SiGithub, color: '#FFFFFF' },
   { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
