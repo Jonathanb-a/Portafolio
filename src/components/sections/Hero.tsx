@@ -23,15 +23,18 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.6, ease: ease.out, delay: 0.2 }}
-        className="pointer-events-none absolute inset-y-0 right-0 w-full opacity-40 lg:w-[48%] lg:opacity-100 [mask-image:linear-gradient(to_right,transparent,#000_40%)]"
+        className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[48%] [mask-image:linear-gradient(to_right,transparent,#000_40%)]"
       >
-        <ShaderMetal
-          metal="copper"
-          theme="dark"
-          ribbons={3}
-          speed={0.3}
-          iridescence={0.25}
-        />
+        {/* La opacidad va en un div interno: la animación de entrada fija opacity inline en el padre. */}
+        <div className="absolute inset-0 opacity-20 lg:opacity-100">
+          <ShaderMetal
+            metal="copper"
+            theme="dark"
+            ribbons={3}
+            speed={0.3}
+            iridescence={0.25}
+          />
+        </div>
       </motion.div>
 
       <motion.div
