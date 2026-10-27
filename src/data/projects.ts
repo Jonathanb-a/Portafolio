@@ -36,18 +36,27 @@ export const projects: Project[] = [
     description:
       'Plataforma web para gestionar las actividades recreativas de un hotel. Proyecto real en producción.',
     tags: ['Laravel', 'MySQL', 'Blade', 'React'],
-    image: '',
+    image: '/projects/actividades-azul.png',
     demo: '',
     repo: '',
     note: 'Demo bajo solicitud',
   },
   {
-    title: 'Plataforma multitienda',
+    title: 'Plataforma Coppers',
     description:
-      'E-commerce multitienda para ropa y calzado deportivo, desarrollado para un cliente.',
+      'E-commerce para ropa y calzado marcas originales, desarrollado para un cliente.',
     tags: [], // TODO: stack
-    image: '',
-    demo: '',
-    repo: '',
+    image: '/projects/coppers.png',
+    demo: 'https://coopers.beauty/login',
+    repo: 'https://github.com/Jonathanb-a/CoopersAndG5Sports',
+  },
+    {
+    title: 'Plataforma G5esports',
+    description:
+      'E-commerce para ropa y calzado deportivo, desarrollado para un cliente.',
+    tags: [], // TODO: stack
+    image: '/projects/g5sports.png',
+    demo: 'https://g5sports-production.up.railway.app',
+    repo: 'https://github.com/Jonathanb-a/CoopersAndG5Sports',
   },
 ]

@@ -61,7 +61,7 @@ export const stack: Tech[] = [
   { name: 'PHP', icon: SiPhp, color: '#777BB4' },
   { name: 'Laravel', icon: SiLaravel, color: '#FF2D20' },
   { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-  { name: 'MongoDB', icon: SiMongodb, color: '#47A248', note: 'básico–intermedio' },
+  { name: 'MongoDB', icon: SiMongodb, color: '#47A248', note: 'básico' },
   { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
   { name: 'Alpine.js', icon: SiAlpinedotjs, color: '#8BC0D0' },
   { name: 'React', icon: SiReact, color: '#61DAFB' },
