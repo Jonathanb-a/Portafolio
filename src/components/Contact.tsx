@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Check, Copy, Download } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa6'
 import { buttonVariants } from '@/components/ui/button'
 import { email, github, cvUrl } from '@/data/contact'
-import { buttonPress, cardHover, reveal, stagger, viewportOnce } from '@/lib/motion'
+import { buttonPress, cardHover, duration, ease, reveal, stagger, viewportOnce } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 const btn = 'h-12 w-full rounded-lg px-6 text-sm sm:w-auto'
@@ -47,14 +47,25 @@ function CopyEmailButton() {
         type="button"
         onClick={handleCopy}
         {...buttonPress}
-        className={cn(buttonVariants({ variant: 'default' }), btn, 'cursor-pointer')}
+        className={cn(buttonVariants({ variant: 'default' }), btn, 'relative cursor-pointer')}
       >
-        {copied ? (
-          <Check aria-hidden className="size-4" />
-        ) : (
-          <Copy aria-hidden className="size-4" />
-        )}
-        <span>{copied ? '¡Copiado!' : email}</span>
+        <AnimatePresence mode="popLayout" initial={false}>
+          <motion.span
+            key={copied ? 'copiado' : 'correo'}
+            initial={{ opacity: 0, filter: 'blur(2px)' }}
+            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, filter: 'blur(2px)' }}
+            transition={{ duration: duration.micro, ease: ease.out }}
+            className="inline-flex items-center gap-3"
+          >
+            {copied ? (
+              <Check aria-hidden className="size-4" />
+            ) : (
+              <Copy aria-hidden className="size-4" />
+            )}
+            <span>{copied ? '¡Copiado!' : email}</span>
+          </motion.span>
+        </AnimatePresence>
       </motion.button>
       <span role="status" aria-live="polite" className="sr-only">
         {copied ? 'Correo copiado al portapapeles' : ''}
@@ -79,7 +90,7 @@ function ResponseBadge() {
 }
 
 const linkCard =
-  'flex min-h-14 items-center gap-3 rounded-xl border border-border bg-background/60 px-5 py-3 text-sm font-medium transition-colors duration-300 hover:border-primary/40'
+  'flex min-h-14 items-center gap-3 rounded-xl border border-border bg-background/60 px-5 py-3 text-sm font-medium transition-colors duration-150 hover:border-primary/40'
 
 export function Contact() {
   return (

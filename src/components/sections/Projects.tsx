@@ -9,7 +9,7 @@ function ProjectCard({ project }: { project: Project }) {
     <motion.article
       variants={reveal}
       {...cardHover}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors duration-300 hover:border-primary/40"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors duration-150 hover:border-primary/40"
     >
       {image ? (
         <img

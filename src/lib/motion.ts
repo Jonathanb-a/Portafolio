@@ -55,7 +55,7 @@ export const heroWord: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: duration.page, ease: ease.out },
+    transition: { duration: 0.55, ease: ease.out },
   },
 }
 
@@ -79,7 +79,7 @@ export const mobileMenu: Variants = {
   closed: {
     opacity: 0,
     y: -12,
-    transition: { duration: exitDuration(duration.base), ease: ease.inOut },
+    transition: { duration: exitDuration(duration.base), ease: ease.out },
   },
   open: { opacity: 1, y: 0, transition: spring.snappy },
 }
@@ -91,7 +91,6 @@ export const cardHover = {
 }
 
 export const buttonPress = {
-  whileHover: { scale: 1.02 },
   whileTap: { scale: 0.97 },
   transition: spring.snappy,
 }

@@ -171,9 +171,9 @@ const techItem: Variants = {
 }
 
 const techIcon: Variants = {
-  hidden: { filter: 'brightness(1)' },
-  visible: { filter: 'brightness(1)' },
-  hover: { filter: 'brightness(1.4)', transition: { duration: duration.micro } },
+  hidden: { opacity: 0.75 },
+  visible: { opacity: 0.75 },
+  hover: { opacity: 1, transition: { duration: duration.micro } },
 }
 
 const techGrid: Variants = {
@@ -253,7 +253,7 @@ function AppliedAI() {
             key={title}
             variants={reveal}
             {...cardHover}
-            className="rounded-xl border border-border bg-card p-6 transition-colors duration-300 hover:border-primary/40"
+            className="rounded-xl border border-border bg-card p-6 transition-colors duration-150 hover:border-primary/40"
           >
             <h4 className="font-heading text-base font-semibold">{title}</h4>
             <p className="mt-2 text-pretty text-sm text-muted-foreground">{description}</p>
